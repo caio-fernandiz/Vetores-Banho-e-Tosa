@@ -9,12 +9,12 @@ public class DesafioII {
         String [] tpDAnml = {"Cachorro", "Gato", "Passáro", "Outro"};
         int    [] grdTpDAnml = new int [5];
         String [] tpDSrvç = {"Banho", "Tosa"};
-        String [] grdTpDSrvç = new String [5];
+        int    [] grdTpDSrvç = new int [5];
         String [] sttsDSrvç = {"Agendado", "Realizado"};
-        String [] grdSttsDSrvç = new String [5];
+        int    [] grdSttsDSrvç = new int [5];
         int escolha, escolha2, escolha3;
         int [] nmrsDRgstrs = new int[5];
-        String registro = "Ta ai essa porra \n";
+        String inforgstrs = "";
 
         for(int i = 0; i < nmrsDRgstrs.length; i++){
             clnts[i] = JOptionPane.showInputDialog(null, "Informe seu nome");
@@ -27,26 +27,17 @@ public class DesafioII {
 
                 escolha2 = JOptionPane.showOptionDialog(null, "Informe o tipo de serviço", "Tipos de serviço",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, tpDSrvç, tpDSrvç[0]);
+                grdTpDSrvç[i] = escolha2;
 
-                if (escolha2 == 0){
+                if (escolha2 == 0 || escolha2 == 1){
                     escolha3 = JOptionPane.showOptionDialog(null, "Informe a situação do serviço", "Status do serviço",
                     JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, sttsDSrvç, sttsDSrvç[0]);
+                    grdSttsDSrvç[i] = escolha3;
 
                     if(escolha3 == 0 || escolha3 == 1){
 
                         JOptionPane.showMessageDialog(null, "Registor realizado");
                     }
-                }
-
-                else if(escolha2 == 1){
-                    escolha3 = JOptionPane.showOptionDialog(null, "Informe a situação do serviço", "Status do serviço",
-                    JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, sttsDSrvç, sttsDSrvç[0]);
-
-                    if(escolha3 == 0 || escolha3 == 1){
-
-                        JOptionPane.showMessageDialog(null, "Registro realizado");
-                    }
-
                 }
 
             }
@@ -55,35 +46,26 @@ public class DesafioII {
                 outroAnml[i] = JOptionPane.showInputDialog(null, "Informe o tipo de animal");
                 escolha2 = JOptionPane.showOptionDialog(null, "Informe o tipo de serviço", "Tipos de serviço",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, tpDSrvç, tpDSrvç[0]);
+                grdTpDSrvç[i] = escolha2;
 
-                if (escolha2 == 0){
+                if (escolha2 == 0 || escolha2 == 1){
                     escolha3 = JOptionPane.showOptionDialog(null, "Informe a situação do serviço", "Status do serviço",
                     JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, sttsDSrvç, sttsDSrvç[0]);
+                    grdSttsDSrvç[i] = escolha3;
 
                     if(escolha3 == 0 || escolha3 == 1){
 
                         JOptionPane.showMessageDialog(null, "Registor realizado");
                     }
-                }
-
-                else if(escolha2 == 1){
-                    escolha3 = JOptionPane.showOptionDialog(null, "Informe a situação do serviço", "Status do serviço",
-                    JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, sttsDSrvç, sttsDSrvç[0]);
-
-                    if(escolha3 == 0 || escolha3 == 1){
-
-                        JOptionPane.showMessageDialog(null, "Registor realizado");
-                    }
-
                 }
             }
         }
 
         for(int i = 0; i < grdTpDAnml.length; i++){
-            registro += "Animal do tipo " + tpDAnml[grdTpDAnml[i]] + "\n";
+            inforgstrs += "Nome do cliente: " + clnts[i] +"\n Nome do animal: " + anmls[i] + "\n Tipo de animal: " +tpDAnml[grdTpDAnml[i]] + "\n";
         }
 
-        JOptionPane.showMessageDialog(null,registro);
+        JOptionPane.showMessageDialog(null, inforgstrs);
     }
     
 }
